@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PacienteResource;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        return Paciente::with('familia')->get()->take(3);
+        return PacienteResource::collection(Paciente::all()->take(3));
     }
 
     /**
@@ -37,7 +38,7 @@ class PacienteController extends Controller
      */
     public function show(Paciente $paciente)
     {
-        //
+        return new PacienteResource($paciente);
     }
 
     /**
