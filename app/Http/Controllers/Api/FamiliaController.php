@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\FamiliaResource;
 use App\Models\Familia;
-use App\Http\Requests\StoreFamiliaRequest;
-use App\Http\Requests\UpdateFamiliaRequest;
+use Illuminate\Http\Request;
 
 class FamiliaController extends Controller
 {
@@ -17,26 +15,16 @@ class FamiliaController extends Controller
      */
     public function index()
     {
-        return FamiliaResource::collection(Familia::with('pacientes')->select('id', 'familia', 'domicilio', 'sector', 'ficha_familiar')->get());
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
         //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreFamiliaRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFamiliaRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -53,24 +41,13 @@ class FamiliaController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Familia  $familia
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Familia $familia)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateFamiliaRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Familia  $familia
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateFamiliaRequest $request, Familia $familia)
+    public function update(Request $request, Familia $familia)
     {
         //
     }
