@@ -24,5 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //Route::put('pacientes/{paciente}', [App\Http\Controllers\Api\PacienteController::class, 'update']);
 
 Route::apiResource('pacientes', App\Http\Controllers\Api\PacienteController::class);
-
+Route::apiResource('familias', App\Http\Controllers\Api\FamiliaController::class);
 
