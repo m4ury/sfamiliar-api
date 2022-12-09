@@ -16,7 +16,7 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        return PacienteResource::collection(Paciente::select('id', 'nombres', 'rut', 'sector')->get());
+        return PacienteResource::collection(Paciente::select('id', 'nombres', 'apellidoP', 'apellidoM', 'rut', 'sector', 'ficha', 'fecha_nacimiento')->get());
     }
 
     /**

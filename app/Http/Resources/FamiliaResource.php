@@ -3,9 +3,8 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Carbon\Carbon;
 
-class PacienteResource extends JsonResource
+class FamiliaResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,11 +16,12 @@ class PacienteResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'rut' => $this->rut,
-            'ficha' => $this->ficha,
-            'nombres' => ucfirst($this->nombres ?? '').' '.ucfirst($this->apellidoP ?? '').' '.ucfirst($this->apellidoM ?? ''),
+            'familia' => $this->familia,
+            'ficha_familiar' => $this->sector.'-'.$this->ficha_familiar,
+            'domicilio' => $this->domicilio,
             'sector' => $this->sector,
-            'edad' => Carbon::parse($this->fecha_nacimiento)->age
+            'fono' => $this->fono,
+            'num_integrantes' => $this->pacientes->count()
         ];
     }
 }

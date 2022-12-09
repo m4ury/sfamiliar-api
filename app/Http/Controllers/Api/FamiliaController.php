@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Familia;
+use App\Http\Resources\FamiliaResource;
 use Illuminate\Http\Request;
 
 class FamiliaController extends Controller
@@ -15,7 +16,7 @@ class FamiliaController extends Controller
      */
     public function index()
     {
-        //
+        return FamiliaResource::collection(Familia::with('pacientes')->select('id', 'familia', 'domicilio', 'sector', 'ficha_familiar')->get());
     }
 
     /**
