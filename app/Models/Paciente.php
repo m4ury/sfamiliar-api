@@ -9,9 +9,10 @@ class Paciente extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombres', 'rut'];
+    protected $fillable = ['nombres', 'rut', 'apellidoP'];
 
-    public function familia(){
+    public function familia()
+    {
         return $this->belongsTo(Familia::class);
     }
 }

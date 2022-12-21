@@ -9,7 +9,8 @@ class Familia extends Model
 {
     use HasFactory;
 
-    public function pacientes(){
+    public function pacientes()
+    {
         return $this->hasMany(Paciente::class);
     }
 }

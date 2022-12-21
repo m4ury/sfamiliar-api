@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\PacienteResource;
-use App\Models\Paciente;
+use App\Models\Familia;
+use App\Http\Resources\FamiliaResource;
 use Illuminate\Http\Request;
 
-class PacienteController extends Controller
+class FamiliaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        return PacienteResource::collection(Paciente::select('id', 'nombres', 'apellidoP', 'apellidoM', 'rut', 'sector', 'ficha', 'fecha_nacimiento')->get());
+        return FamiliaResource::collection(Familia::with('pacientes')->select('id', 'familia', 'domicilio', 'sector', 'ficha_familiar')->get());
     }
 
     /**
@@ -33,10 +33,10 @@ class PacienteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Paciente  $paciente
+     * @param  \App\Models\Familia  $familia
      * @return \Illuminate\Http\Response
      */
-    public function show(Paciente $paciente)
+    public function show(Familia $familia)
     {
         //
     }
@@ -45,10 +45,10 @@ class PacienteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Paciente  $paciente
+     * @param  \App\Models\Familia  $familia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Paciente $paciente)
+    public function update(Request $request, Familia $familia)
     {
         //
     }
@@ -56,10 +56,10 @@ class PacienteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Paciente  $paciente
+     * @param  \App\Models\Familia  $familia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Paciente $paciente)
+    public function destroy(Familia $familia)
     {
         //
     }
