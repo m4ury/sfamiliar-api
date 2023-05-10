@@ -15,7 +15,7 @@ services:
         volumes:
             - ./://var/www
         ports:
-            - "8000:8000"
+            - "80:8000"
         depends_on:
             - database
             - redis
@@ -24,7 +24,7 @@ services:
     database:
         image: mysql:8.0
         ports:
-            -   3307:3307
+            - 3307:3307
         environment:
             - MYSQL_DATABASE=${DB_DATABASE}
             - MYSQL_ALLOW_EMPTY_PASSWORD=true
