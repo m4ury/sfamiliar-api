@@ -11,5 +11,5 @@ COPY . .
 COPY --from=composer:2.3.5 /usr/bin/composer /usr/bin/composer
 
 ENV PORT=8000
-RUN chmod +x entrypoint.sh
+RUN chmod +x Docker/entrypoint.sh
 ENTRYPOINT ["Docker/entrypoint.sh"]
